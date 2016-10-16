@@ -1,0 +1,32 @@
+{
+  "response_format": {
+    "int": [
+      "current_amount",
+      "enable_amount",
+      "entrust_amount",
+      "business_amount"
+    ],
+    "float": [
+      "current_balance",
+      "enable_balance",
+      "fetch_balance",
+      "market_value",
+      "asset_balance",
+      "av_buy_price",
+      "cost_price",
+      "income_balance",
+      "market_value",
+      "entrust_price",
+      "business_price",
+      "business_balance",
+      "fare1",
+      "occur_balance",
+      "farex",
+      "fare0",
+      "occur_amount",
+      "post_balance",
+      "fare2",
+      "fare3"
+    ]
+  }
+}
