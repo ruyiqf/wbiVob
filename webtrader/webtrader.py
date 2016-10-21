@@ -3,9 +3,10 @@ import logging
 import os
 import re
 import time
+import json
 
 from threading import Thread
-from log import log
+from .log import log
 
 class WebTrader(object):
     """Base wbi trader interface"""
@@ -22,7 +23,8 @@ class WebTrader(object):
 
     def read_config(self, path):
         try:
-            self.account_config = helpers.file2dict(path)
+            with open(path, encoding='utf-8') as f:
+                self.account_config = json.load(f)
         except ValueError:
             log.error('Config file format of configuration has errors')
 
@@ -82,8 +84,10 @@ class WebTrader(object):
 
     def __read_config(self):
         """Read config file"""
-        self.config = helpers.file2dict(self.config_path)
-        self.global_config = helpers.file2dict(self.global_config_path)
+        with open(self.config_path, encoding='utf-8') as f:
+            self.config = json.load(f)
+        with open(self.global_config_path, encoding='utf-8') as f:
+            self.global_config = json.load(f)
         self.config.update(self.global_config)
 
     @property
@@ -136,7 +140,6 @@ class WebTrader(object):
         pass
 
 def main():
-    print('euxyacg')
     wt = WebTrader()
 
 if __name__ == '__main__':
